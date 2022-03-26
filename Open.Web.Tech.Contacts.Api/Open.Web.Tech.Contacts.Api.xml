@@ -1,0 +1,658 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Open.Web.Tech.Contacts.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Open.Web.Tech.Contacts.Api.Controllers.ContactsController">
+            <summary>
+            Contacts Controller
+            </summary>
+        </member>
+        <member name="F:Open.Web.Tech.Contacts.Api.Controllers.ContactsController._mediator">
+            <summary>
+            Mediator 
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.ContactsController.#ctor(MediatR.IMediator)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="mediator">Mediator.</param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.ContactsController.ListAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get the list of all contacts
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns>Contact list</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.ContactsController.GetAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get contact by uid
+            </summary>
+            <param name="contactUid">Contact uid</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Contact.</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.ContactsController.CreateContactAsync(Open.Web.Tech.Contacts.Api.Interfaces.Commands.CreateContactCommand,System.Threading.CancellationToken)">
+            <summary>
+            Create new contact.
+            </summary>
+            <param name="request">New contact data.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Contact created.</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.ContactsController.UpdateContactAsync(System.Guid,Open.Web.Tech.Contacts.Api.Interfaces.Commands.UpdateContactCommand,System.Threading.CancellationToken)">
+            <summary>
+            Update contact.
+            </summary>
+            <param name="contactUid">Contact uid</param>
+            <param name="request">Contact to update data.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Contact updated.</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.ContactsController.DeleteContactAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Delete contact.
+            </summary>
+            <param name="contactUid">Contact uid to delete</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Delete result.</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.ContactsController.CreateContactSkillsync(System.Guid,Open.Web.Tech.Contacts.Api.Interfaces.Commands.CreateContactSkillCommand,System.Threading.CancellationToken)">
+            <summary>
+            Add new skill to contact.
+            </summary>
+            <param name="contactUid">Contact uid</param>
+            <param name="request">New skill data.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Contact with skill created.</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.ContactsController.UpdateContactSkillAsync(System.Guid,System.Guid,Open.Web.Tech.Contacts.Api.Interfaces.Commands.UpdateContactSkillCommand,System.Threading.CancellationToken)">
+            <summary>
+            Update contact skill.
+            </summary>
+            <param name="contactUid">Contact uid</param>
+            <param name="skillUid">Skill uid</param>
+            <param name="request">Contact to update data.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Contact updated.</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.ContactsController.DeleteContactSkillAsync(System.Guid,System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Delete contact skill.
+            </summary>
+            <param name="contactUid">Contact uid to delete</param>
+            <param name="skillUid">Skill uid</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Delete result.</returns>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Controllers.SkillsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Open.Web.Tech.Contacts.Api.Controllers.SkillsController._mediator">
+            <summary>
+            Mediator 
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.SkillsController.#ctor(MediatR.IMediator)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="mediator">Mediator.</param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.SkillsController.ListAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get the list of all skills
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns>Skill list</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.SkillsController.GetAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get skill by uid
+            </summary>
+            <param name="skillUid">Skill uid</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Skill.</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.SkillsController.CreateSkillAsync(Open.Web.Tech.Contacts.Api.Interfaces.Commands.CreateSkillCommand,System.Threading.CancellationToken)">
+            <summary>
+            Create new skill.
+            </summary>
+            <param name="request">New skill data.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Skill created.</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.SkillsController.UpdateSkillAsync(System.Guid,Open.Web.Tech.Contacts.Api.Interfaces.Commands.UpdateSkillCommand,System.Threading.CancellationToken)">
+            <summary>
+            Update skill.
+            </summary>
+            <param name="skillUid">Skill uid</param>
+            <param name="request">Skill to update data.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Skill updated.</returns>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Controllers.SkillsController.DeleteSkillAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Delete skill.
+            </summary>
+            <param name="skillUid">Skill uid to delete</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Delete result.</returns>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Data.ApiContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Data.ApiContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Open.Web.Tech.Contacts.Api.Data.ApiContext})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.ApiContext.Contacts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.ApiContext.Skills">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.ApiContext.ContactSkills">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Data.ApiContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Data.DbInitializer">
+            <summary>
+            DbInitializer
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Data.DbInitializer.Initialize(Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Data.Models.Contact">
+            <summary>
+            Contact
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Contact.ID">
+            <summary>
+            Id interne
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Contact.Uid">
+            <summary>
+            Contact UUID
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Contact.FirstName">
+            <summary>
+            Firstname
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Contact.LastName">
+            <summary>
+            Lastname
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Contact.FullName">
+            <summary>
+            Fullname
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Contact.Address">
+            <summary>
+            Address
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Contact.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Contact.Mobile">
+            <summary>
+            Mobile phone number
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Contact.SkillContact">
+            <summary>
+            Contact Skills
+            </summary>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Data.Models.Level">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Open.Web.Tech.Contacts.Api.Data.Models.Level.A">
+            <summary>
+            leve A
+            </summary>
+        </member>
+        <member name="F:Open.Web.Tech.Contacts.Api.Data.Models.Level.B">
+            <summary>
+            leve B
+            </summary>
+        </member>
+        <member name="F:Open.Web.Tech.Contacts.Api.Data.Models.Level.C">
+            <summary>
+            leve C
+            </summary>
+            
+        </member>
+        <member name="F:Open.Web.Tech.Contacts.Api.Data.Models.Level.D">
+            <summary>
+            leve D
+            </summary>
+        </member>
+        <member name="F:Open.Web.Tech.Contacts.Api.Data.Models.Level.F">
+            <summary>
+            leve F
+            </summary>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Data.Models.ContactSkill">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.ContactSkill.ContactSkillID">
+            <summary>
+            id skill contact
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.ContactSkill.ContactID">
+            <summary>
+            Contact id
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.ContactSkill.SkillID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.ContactSkill.Level">
+            <summary>
+            Level (expertise)
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.ContactSkill.Contact">
+            <summary>
+            Contact
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.ContactSkill.Skill">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Data.Models.Skill">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Skill.SkillID">
+            <summary>
+            Id interne
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Skill.Uid">
+            <summary>
+            Skill UUID
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Skill.Code">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Skill.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Data.Models.Skill.SkillContact">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Mappers.ContactDtoMapping">
+            <summary>
+            ContactDtoMapping
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Mappers.ContactDtoMapping.#ctor">
+            <summary>
+            Constructeur : ContactDtoMapping
+            </summary>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Mappers.ContactSkillDtoMapping">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Mappers.ContactSkillDtoMapping.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Mappers.SkillDtoMapping">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Mappers.SkillDtoMapping.#ctor">
+            <summary>
+            Constructeur : ContactDtoMapping
+            </summary>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:Open.Web.Tech.Contacts.Api.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.ContactSkills.CreateContactSkillHandler">
+            <summary>
+            CreateContactSkillHandler
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.ContactSkills.CreateContactSkillHandler.#ctor(AutoMapper.IMapper,Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : CreateContactSkillHandler
+            </summary>
+            <param name="mapper">mapper</param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.ContactSkills.CreateContactSkillHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Commands.CreateContactSkillCommand,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.ContactSkills.DeleteContactSkillHandler">
+            <summary>
+            DeleteContactSkillHandler
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.ContactSkills.DeleteContactSkillHandler.#ctor(Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : Delete Contact Skill Handler
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.ContactSkills.DeleteContactSkillHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Commands.DeleteContactSkillCommand,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.ContactSkills.UpdateContactSkillHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.ContactSkills.UpdateContactSkillHandler.#ctor(AutoMapper.IMapper,Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : UpdateContactSkillHandler
+            </summary>
+            <param name="mapper">mapper</param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.ContactSkills.UpdateContactSkillHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Commands.UpdateContactSkillCommand,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.Contacts.CreateContactHandler">
+            <summary>
+            Create Contact Handler
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Contacts.CreateContactHandler.#ctor(AutoMapper.IMapper,Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : Create new Contact Handler
+            </summary>
+            <param name="mapper">mapper</param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Contacts.CreateContactHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Commands.CreateContactCommand,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.Contacts.DeleteContactHandler">
+            <summary>
+            Delete Contact Handler
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Contacts.DeleteContactHandler.#ctor(Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : delete Contact Handler
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Contacts.DeleteContactHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Commands.DeleteContactCommand,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.Contacts.GetContactHandler">
+            <summary>
+            Get Contact Handler
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Contacts.GetContactHandler.#ctor(AutoMapper.IMapper,Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : Get Contact Handler
+            </summary>
+            <param name="mapper">mapper</param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Contacts.GetContactHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Queries.GetContactQuery,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.Contacts.ListContactHandler">
+            <summary>
+            List Contact Handler
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Contacts.ListContactHandler.#ctor(AutoMapper.IMapper,Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructeur : ListContactHandler
+            </summary>
+            <param name="mapper">mapper</param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Contacts.ListContactHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Queries.ListContactQuery,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.Contacts.UpdateContactHandler">
+            <summary>
+            Update Contact Handler
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Contacts.UpdateContactHandler.#ctor(AutoMapper.IMapper,Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : udpate Contact Handler
+            </summary>
+            <param name="mapper">mapper</param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Contacts.UpdateContactHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Commands.UpdateContactCommand,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.Skills.CreateSkillHandler">
+            <summary>
+            CreateSkillHandler
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Skills.CreateSkillHandler.#ctor(AutoMapper.IMapper,Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : Create new Skill Handler
+            </summary>
+            <param name="mapper">mapper</param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Skills.CreateSkillHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Commands.CreateSkillCommand,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.Skills.GetSkillHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Skills.GetSkillHandler.#ctor(AutoMapper.IMapper,Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : Get Skill Handler
+            </summary>
+            <param name="mapper">mapper</param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Skills.GetSkillHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Queries.GetSkillQuery,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Contacts.Api.UseCases.Skills.ListSkillHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Skills.ListSkillHandler.#ctor(AutoMapper.IMapper,Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructeur : ListSkillHandler
+            </summary>
+            <param name="mapper">mapper</param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Contacts.Api.UseCases.Skills.ListSkillHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Queries.ListSkillQuery,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Skills.Api.UseCases.Skills.DeleteSkillHandler">
+            <summary>
+            DeleteSkillHandler
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Skills.Api.UseCases.Skills.DeleteSkillHandler.#ctor(Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : delete Skill Handler
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Skills.Api.UseCases.Skills.DeleteSkillHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Commands.DeleteSkillCommand,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:Open.Web.Tech.Skills.Api.UseCases.Skills.UpdateSkillHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Open.Web.Tech.Skills.Api.UseCases.Skills.UpdateSkillHandler.#ctor(AutoMapper.IMapper,Open.Web.Tech.Contacts.Api.Data.ApiContext)">
+            <summary>
+            Constructor : udpate Skill Handler
+            </summary>
+            <param name="mapper">mapper</param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Open.Web.Tech.Skills.Api.UseCases.Skills.UpdateSkillHandler.Handle(Open.Web.Tech.Contacts.Api.Interfaces.Commands.UpdateSkillCommand,System.Threading.CancellationToken)">
+            <summary>
+            IRequestHandler{TRequest,TResponse}.Handle(TRequest, CancellationToken)
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+        </member>
+    </members>
+</doc>
